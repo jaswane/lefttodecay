@@ -1,65 +1,82 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Hero } from "@/components/Hero";
+import { StoryCard } from "@/components/StoryCard";
+import { STORIES } from "@/content/stories";
+import { TAGS } from "@/content/tags";
+import { t } from "@/lib/i18n";
 
 export default function Home() {
+  const featuredStory = STORIES[0];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero image={featuredStory.hero} />
+
+      {/* Intro */}
+      <section className="mx-auto max-w-[1680px] px-6 sm:px-10 lg:px-16 py-24 sm:py-32 lg:py-40">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20">
+          <div className="lg:col-span-3">
+            <p className="eyebrow">The archive</p>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="font-serif text-2xl sm:text-3xl lg:text-4xl leading-[1.3] tracking-[-0.01em] text-foreground">
+              Left to Decay is a quiet, ongoing record of the places we leave
+              behind. Each story is photographed on location, in available light,
+              and presented here in full — without compression, without commentary,
+              without rush.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Stories */}
+      <section id="stories" className="mx-auto max-w-[1680px] px-6 sm:px-10 lg:px-16">
+        <div className="flex items-baseline justify-between mb-12 lg:mb-20">
+          <p className="eyebrow">Stories</p>
+          <p className="eyebrow">{String(STORIES.length).padStart(2, "0")} documented</p>
         </div>
-      </main>
-    </div>
+        <div className="grid gap-20 sm:gap-24 lg:gap-32 lg:grid-cols-2">
+          {STORIES.map((story, i) => (
+            <StoryCard key={story.slug} story={story} index={i} />
+          ))}
+        </div>
+      </section>
+
+      {/* Archives / tags */}
+      <section
+        id="archives"
+        className="mx-auto max-w-[1680px] px-6 sm:px-10 lg:px-16 py-32 lg:py-48"
+      >
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 mb-12">
+          <div className="lg:col-span-3">
+            <p className="eyebrow">Featured archives</p>
+          </div>
+          <div className="lg:col-span-8">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.03em] leading-[1.05]">
+              Browse by theme,
+              <br />
+              place, or method.
+            </h2>
+          </div>
+        </div>
+        <ul className="border-t hairline">
+          {TAGS.map((tag) => (
+            <li key={tag.slug} className="border-b hairline">
+              <Link
+                href={`/tag/${tag.slug}`}
+                className="group flex items-baseline justify-between gap-6 py-6 sm:py-8"
+              >
+                <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium tracking-[-0.02em] group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                  {t(tag.title)}
+                </span>
+                <span className="font-display text-[11px] uppercase tracking-[0.22em] text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+                  View →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
