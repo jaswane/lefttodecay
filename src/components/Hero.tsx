@@ -39,7 +39,7 @@ export function Hero({ image }: { image: ImageSource }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="font-display text-[11px] uppercase tracking-[0.22em] opacity-80 mb-6"
+            className="font-display text-[12px] uppercase tracking-[0.28em] font-semibold opacity-90 mb-5"
           >
             Documented on location · 2012 — 2019
           </motion.p>
@@ -47,7 +47,7 @@ export function Hero({ image }: { image: ImageSource }) {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-medium tracking-[-0.04em] leading-[0.92] text-[15vw] sm:text-[12vw] lg:text-[160px] xl:text-[200px]"
+            className="font-display font-semibold tracking-[-0.045em] leading-[0.88] text-[16vw] sm:text-[13vw] lg:text-[170px] xl:text-[210px]"
           >
             Left
             <br />
@@ -57,7 +57,7 @@ export function Hero({ image }: { image: ImageSource }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.9 }}
-            className="font-serif text-lg sm:text-xl max-w-xl mt-8 opacity-90 leading-relaxed"
+            className="font-serif text-xl sm:text-2xl max-w-xl mt-7 opacity-95 leading-[1.4]"
           >
             Urban exploration and documentary photography archive.
           </motion.p>
@@ -68,7 +68,7 @@ export function Hero({ image }: { image: ImageSource }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 1.6 }}
-        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 font-display text-[10px] uppercase tracking-[0.22em] opacity-70"
+        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 font-display text-[11px] uppercase tracking-[0.32em] font-semibold opacity-80"
       >
         Scroll
       </motion.div>

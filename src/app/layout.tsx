@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Cormorant_Garamond } from "next/font/google";
+import { Inter_Tight, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -11,10 +11,14 @@ const display = Inter_Tight({
   display: "swap",
 });
 
-const serif = Cormorant_Garamond({
+/* Source Serif 4 — workhorse magazine serif. Reads with more weight
+ * than Cormorant at the same nominal weight; stronger at small sizes;
+ * better-suited to long captions and intro paragraphs than to bridal
+ * display work. */
+const serif = Source_Serif_4({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });

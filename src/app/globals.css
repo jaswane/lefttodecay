@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium documentary palette — warm offwhite, charcoal text */
-  --background: #f6f4ef;
-  --foreground: #1c1b18;
-  --foreground-muted: #6b675f;
-  --foreground-faint: #a8a39a;
-  --rule: #e3ddd0;
+  /* Premium documentary palette — warm offwhite, deep ink text.
+   * Foreground is slightly cooler/darker than v1 to lift serif body
+   * contrast without going to pure black. Muted is bumped to a
+   * readable secondary, not a faint hint. */
+  --background: #f5f2eb;
+  --foreground: #14130f;
+  --foreground-muted: #4d4842;
+  --foreground-faint: #847e74;
+  --rule: #d8d1c1;
   --accent: #7a3b1d;
-  --shadow-cinematic: 0 30px 80px -40px rgba(28, 27, 24, 0.35);
+  --shadow-cinematic: 0 30px 80px -40px rgba(20, 19, 15, 0.35);
 }
 
 @theme inline {
@@ -39,8 +42,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
-  font-feature-settings: "ss01", "ss02", "kern", "liga";
-  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "onum";
+  /* Slightly tighter line-height + a touch more weight tracked through
+   * font-weight on .font-serif blocks. 400 was too thin against
+   * a warm bg; 460-ish via weight + feature settings reads better. */
+  line-height: 1.55;
+  font-weight: 420;
 }
 
 ::selection {
@@ -62,7 +69,17 @@ body {
   font-family: var(--font-display), "Inter", sans-serif;
   text-transform: uppercase;
   letter-spacing: var(--tracking-eyebrow);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* A quieter variant for inline metadata next to dominant text. */
+.eyebrow-muted {
+  font-family: var(--font-display), "Inter", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: 12px;
   font-weight: 500;
   color: var(--foreground-muted);
 }

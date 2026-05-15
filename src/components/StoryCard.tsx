@@ -28,18 +28,19 @@ export function StoryCard({ story, index }: { story: Story; index: number }) {
             />
           </motion.div>
         </div>
-        <div className="pt-6 flex items-baseline justify-between gap-6">
-          <div>
-            <p className="eyebrow mb-2">
-              {String(index + 1).padStart(2, "0")} — {t(story.location)} · {story.year}
-            </p>
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium tracking-[-0.02em] leading-[1.05]">
-              {t(story.title)}
-            </h3>
-            <p className="font-serif text-base sm:text-lg text-muted mt-3 max-w-xl leading-relaxed">
-              {t(story.subtitle)}
-            </p>
-          </div>
+        <div className="pt-7 sm:pt-8">
+          <p className="eyebrow mb-3">
+            <span className="opacity-50 mr-2">№ {String(index + 1).padStart(2, "0")}</span>
+            <span>
+              {t(story.location)} · {story.year}
+            </span>
+          </p>
+          <h3 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-[-0.025em] leading-[1.0]">
+            {t(story.title)}
+          </h3>
+          <p className="font-serif text-lg sm:text-xl text-foreground/85 mt-3 max-w-xl leading-[1.45]">
+            {t(story.subtitle)}
+          </p>
         </div>
       </Link>
     </motion.article>

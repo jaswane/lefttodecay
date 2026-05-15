@@ -36,13 +36,11 @@ export function TagView({ images }: Props) {
             <figcaption className="mt-4 flex items-baseline justify-between gap-4">
               <Link
                 href={`/story/${entry.story.slug}`}
-                className="font-serif text-lg underline-offset-4 hover:underline"
+                className="font-display text-lg sm:text-xl font-semibold tracking-[-0.015em] hover:text-foreground/70 transition-colors"
               >
                 {t(entry.story.title)}
               </Link>
-              <span className="font-display text-[11px] uppercase tracking-[0.22em] text-muted">
-                {entry.story.year}
-              </span>
+              <span className="eyebrow-muted shrink-0">{entry.story.year}</span>
             </figcaption>
           </motion.figure>
         ))}
