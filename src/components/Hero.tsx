@@ -27,37 +27,38 @@ export function Hero({ image }: { image: ImageSource }) {
           fill
           className="h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-black/30 pointer-events-none" />
+        {/* Single soft bottom vignette — the image breathes everywhere else.
+         * No mid/top tint, no heavy gradient. Only a quiet veil under
+         * the title so the metadata stays legible. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24"
+        className="relative z-10 h-full flex flex-col justify-end pb-24 sm:pb-28 lg:pb-32"
       >
         <div className="mx-auto w-full max-w-[1680px] px-6 sm:px-10 lg:px-16">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4 }}
-            className="font-display text-[12px] uppercase tracking-[0.28em] font-semibold opacity-90 mb-5"
+            transition={{ duration: 1.4, delay: 0.4 }}
+            className="font-display text-[10.5px] sm:text-[11px] uppercase tracking-[0.36em] font-medium opacity-70 mb-5"
           >
             Documented on location · 2012 — 2019
           </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-semibold tracking-[-0.045em] leading-[0.88] text-[16vw] sm:text-[13vw] lg:text-[170px] xl:text-[210px]"
+            transition={{ duration: 1.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display font-medium tracking-[-0.02em] leading-[0.95] text-[10.5vw] sm:text-[8vw] lg:text-[108px] xl:text-[136px]"
           >
-            Left
-            <br />
-            to Decay
+            Left to Decay
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.9 }}
-            className="font-serif text-xl sm:text-2xl max-w-xl mt-7 opacity-95 leading-[1.4]"
+            transition={{ duration: 1.4, delay: 1.0 }}
+            className="font-serif italic text-[15px] sm:text-base lg:text-lg max-w-[26ch] mt-6 sm:mt-7 opacity-80 leading-[1.55] text-balance"
           >
             Urban exploration and documentary photography archive.
           </motion.p>
@@ -67,8 +68,8 @@ export function Hero({ image }: { image: ImageSource }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 1.6 }}
-        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 font-display text-[11px] uppercase tracking-[0.32em] font-semibold opacity-80"
+        transition={{ duration: 1.6, delay: 1.8 }}
+        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 font-display text-[10px] uppercase tracking-[0.34em] font-medium opacity-45"
       >
         Scroll
       </motion.div>
