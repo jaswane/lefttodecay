@@ -1,10 +1,32 @@
 import type { Story, ImageSource } from "@/lib/types";
+import { carcemetery } from "./stories/carcemetery";
 import { chernobyl2017 } from "./stories/chernobyl-2017";
 import { paperMillSweden } from "./stories/paper-mill-sweden";
 import { forestHouse } from "./stories/forest-house";
 import { militaryTunnel } from "./stories/military-tunnel";
 
+/**
+ * Global homepage hero. Decoupled from STORIES[0] so the cover image
+ * can be curated independently of the lead story — exactly like a
+ * magazine cover photograph that doesn't have to come from the lead
+ * feature inside.
+ */
+export const HOMEPAGE_HERO: ImageSource = {
+  id: "homepage-hero",
+  // Literal spaces — `next/image` will URL-encode once when passing
+  // the src through the optimizer. Pre-encoding here would double-
+  // encode into `%2520` and 404 against R2.
+  src: "https://images.lefttodecay.com/chateau congo hero.jpg",
+  width: 4000,
+  height: 1992,
+  alt: {
+    en: "Chateau Congo — a quiet, dust-lit interior at the heart of the archive",
+  },
+  featured: true,
+};
+
 export const STORIES: Story[] = [
+  carcemetery,
   chernobyl2017,
   paperMillSweden,
   militaryTunnel,

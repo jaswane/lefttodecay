@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { StoryCard } from "@/components/StoryCard";
-import { STORIES } from "@/content/stories";
+import { HOMEPAGE_HERO, STORIES } from "@/content/stories";
 import { TAGS } from "@/content/tags";
 import { t } from "@/lib/i18n";
 
 export default function Home() {
-  const featuredStory = STORIES[0];
-
   return (
     <>
-      <Hero image={featuredStory.hero} />
+      <Hero image={HOMEPAGE_HERO} />
 
       {/* Intro */}
       <section className="mx-auto max-w-[1680px] px-6 sm:px-10 lg:px-16 py-20 sm:py-24 lg:py-28">

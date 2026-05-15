@@ -201,15 +201,17 @@ export function StoryView({ story, related }: Props) {
           <div className="grid gap-14 sm:gap-16 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => (
               <Link key={r.slug} href={`/story/${r.slug}`} className="group block">
-                <div className="overflow-hidden">
+                <div className="overflow-hidden relative aspect-[4/3]">
                   <motion.div
+                    className="absolute inset-0"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Photo
                       image={r.hero}
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="aspect-[4/3]"
+                      fill
+                      className="absolute inset-0"
                     />
                   </motion.div>
                 </div>

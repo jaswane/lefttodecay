@@ -16,15 +16,17 @@ export function StoryCard({ story, index }: { story: Story; index: number }) {
       className="group"
     >
       <Link href={`/story/${story.slug}`} className="block">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden relative aspect-[4/3] lg:aspect-[3/2]">
           <motion.div
+            className="absolute inset-0"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <Photo
               image={story.hero}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="aspect-[4/3] lg:aspect-[3/2]"
+              fill
+              className="absolute inset-0"
             />
           </motion.div>
         </div>
